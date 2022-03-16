@@ -19,6 +19,7 @@
         <input asp-for = "EntryTwo" />
 
         @Html.DropDownListFor(m => m.makecalculate, new SelectList(Enum.GetValues(typeof(MakeCalculate))))
+        @*attempted to use CHECK BOX, but it was not allowing the app to run properly, any pointers would be great, Thank you! *@
 
         <div class = "submitButton">
             <button type = "submit">Calculate</button>

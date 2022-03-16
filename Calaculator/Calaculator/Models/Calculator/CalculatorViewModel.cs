@@ -4,7 +4,8 @@
     {
         public double EntryOne { get; set; }
         public double EntryTwo { get; set; }
-        public double TotalNumber { get; set; }
+
+        public double TotalNumber = 0;
         public MakeCalculate makecalculate { get; set; }
 
 
