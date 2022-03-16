@@ -10,7 +10,7 @@ namespace Calaculator.Controllers
 
         public IActionResult Calculator(CalculatorViewModel calculatorviewmodel)
         {
-            ModelState.Clear();
+            
             switch (calculatorviewmodel.makecalculate)
             {
                 case CalculatorViewModel.MakeCalculate.Add:
