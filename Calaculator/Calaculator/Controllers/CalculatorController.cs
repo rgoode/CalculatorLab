@@ -1,33 +1,57 @@
-﻿namespace Calaculator.Controllers
+﻿using Calaculator.Models.Calculator;
+using Calaculator.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+
+namespace Calaculator.Controllers
 {
     public class CalculatorController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public IActionResult Calculator(CalculatorViewModel calculatorviewmodel)
         {
-            _logger = logger;
+            ModelState.Clear();
+            switch (calculatorviewmodel.makecalculate)
+            {
+                case CalculatorViewModel.MakeCalculate.Add:
+                    calculatorviewmodel.TotalNumber = calculatorviewmodel.EntryOne + calculatorviewmodel.EntryTwo;
+                    break;
+                case CalculatorViewModel.MakeCalculate.Multiply:
+                    calculatorviewmodel.TotalNumber = calculatorviewmodel.EntryOne * calculatorviewmodel.EntryTwo;
+                    break;
+                case CalculatorViewModel.MakeCalculate.Subtract:
+                    calculatorviewmodel.TotalNumber = calculatorviewmodel.EntryOne - calculatorviewmodel.EntryTwo;
+                    break;
+                case CalculatorViewModel.MakeCalculate.Divide:
+                    calculatorviewmodel.TotalNumber = calculatorviewmodel.EntryOne / calculatorviewmodel.EntryTwo;
+                    break;
+                default:
+                    break;
+            }
+
+            return View(calculatorviewmodel);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
+
+        //private readonly ILogger<CalculatorController> _logger;
+        //private readonly Calculator _calculator;
+
+        //public CalculatorController(ILogger<CalculatorController> logger, Calculator calculator)
+        //{
+        //    _logger = logger;
+        //    _calculator = calculator;
+        //}
     }
 }
-    }
-}
+    
+
 
 //Create a Calculator app using MVC and forms
 

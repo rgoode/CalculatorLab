@@ -1,0 +1,44 @@
+﻿@model Calaculator.Models.Calculator.CalculatorViewModel
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class = "header">
+    <h1>Calculator App</h1>
+</div>
+
+<div class = "inputAddForm">
+    <form asp-controller = "Calculator" asp-action = "Calculator">
+        <label asp-for = "EntryOne">Enter First Number</label>
+        <input asp-for = "EntryOne" />
+
+        <label asp-for = "EntryTwo">Enter Second Number</label>
+        <input asp-for = "EntryTwo" />
+
+        @Html.DropDownListFor(m => m.makecalculate, new SelectList(Enum.GetValues(typeof(MakeCalculate))))
+       
+        
+@*      <button onclick = "@Model.AddInput(@Model.EntryOne, @Model.EntryTwo)">Add</button>   
+        <button onclick = "@Model.SubtractInput(@Model.EntryOne, @Model.EntryTwo)">Subtract</button>
+        <button onclick = "@Model.MultiplyInput(@Model.EntryOne, @Model.EntryTwo)">Multiply</button>
+        <button onclick = "@Model.DivideInput(@Model.EntryOne, @Model.EntryTwo)">Divide</button>*@
+
+
+
+        <div class = "Total">
+            <h2>Your Total Is:@Model.TotalNumber</h2>
+        </div>
+
+        <div>
+            <button type = "reset">Reset Calculation</button>
+        </div>
+
+        </*button type = "reset" value = "Reset">Reset Calculator</button>*/
+
+     </form> 
+
+</div>
+
+
+

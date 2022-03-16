@@ -2,6 +2,6 @@
 {
     public class Calculator
     {
-      public int
+      public double _calculator { get; set; }
     }
 }

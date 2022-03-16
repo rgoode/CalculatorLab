@@ -1,8 +1,40 @@
-﻿@{
+﻿@model Calaculator.Models.Calculator.CalculatorViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+    ViewData["Title"] = "Home Page";
+}
+
+<div class = "header">
+    <h1>Calculator App</h1>
+</div>
+
+<div class = "inputForm">
+    <form asp-controller = "Calculator" asp-action = "Calculator">
+        <label asp-for = "EntryOne">Enter First Number</label>
+        <input asp-for = "EntryOne" />
+
+        <label asp-for = "EntryTwo">Enter Second Number</label>
+        <input asp-for = "EntryTwo" />
+
+        <button type = "AddInput(FirstNumber, SecondNumber)">Add</button>
+        <button type = "SubtractInput(FirstNumber, SecondNumber)">Subtract</button>
+        <button type = "MultiplyInput(FirstNumber, SecondNumber)">Multiply</button>
+        <button type = "DivideInput(FirstNumber, SecondNumber)">Divide</button>
+
+        <div class = "Total">
+            <h2>Your Total Is:@Model.TotalNumber</h2>
+        </div>
+
+
+
+    </form> 
+
 </div>
